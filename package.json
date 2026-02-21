@@ -6,6 +6,7 @@
     "next": "15.5.2"
   },
   "scripts": {
+    "preinstall": "npm config set legacy-peer-deps true",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
