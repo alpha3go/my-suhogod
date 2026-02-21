@@ -9,6 +9,7 @@
     "preinstall": "npm config set legacy-peer-deps true",
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "rm -rf .next/cache",
     "start": "next start",
     "lint": "eslint",
     "deploy": "npm install --legacy-peer-deps && npm run build"
