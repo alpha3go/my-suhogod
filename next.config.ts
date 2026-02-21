@@ -30,9 +30,6 @@ const nextConfig: NextConfig = {
     }
     return config;
   },
-  experimental: {
-    optimizePackageWarn: false,
-  },
 };
 
 export default nextConfig;
