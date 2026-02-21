@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "npm run build && npx @cloudflare/next-on-pages"
+    "deploy": "npm install --legacy-peer-deps && npm run build"
   },
   "dependencies": {
     "@supabase/ssr": "^0.8.0",
