@@ -2,8 +2,5 @@ name = "my-suhogod"
 compatibility_date = "2024-01-01"
 pages_build_output_dir = ".next"
 
-[build]
-command = "npm install --legacy-peer-deps && npm run build"
-
 [vars]
 OPENAI_API_KEY = ""
