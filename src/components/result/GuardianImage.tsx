@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 interface GuardianImageProps {
   imageUrl: string;
   guardianName: string;
@@ -9,10 +11,12 @@ export function GuardianImage({ imageUrl, guardianName }: GuardianImageProps) {
   return (
     <div className="relative">
       <div className="relative aspect-square max-w-[400px] mx-auto rounded-2xl overflow-hidden shadow-2xl">
-        <img
+        <Image
           src={imageUrl}
           alt={guardianName}
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
+          unoptimized
         />
         {/*Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />

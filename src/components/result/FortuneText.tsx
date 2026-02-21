@@ -36,7 +36,7 @@ export function FortuneTextComponent({ guardianName, fortune }: FortuneTextProps
         <div className="space-y-2">
           {fortune.encouragement.map((text, index) => (
             <p key={index} className="text-gray-700 leading-relaxed">
-              "{text}"
+              &ldquo;{text}&rdquo;
             </p>
           ))}
         </div>

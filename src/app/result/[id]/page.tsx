@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
+import Link from 'next/link';
 import { GNB, Footer, AdSlot } from '@/components/layout';
 import { GuardianImage, FortuneTextComponent, ShareButtons } from '@/components/result';
 import { SummoningAnimation } from '@/components/loading';
@@ -106,9 +107,9 @@ export default function ResultPage() {
             <h1 className="text-2xl font-bold text-gray-800 mb-4">
               결과를 찾을 수 없습니다
             </h1>
-            <a href="/" className="text-purple-600 hover:text-purple-700">
+            <Link href="/" className="text-purple-600 hover:text-purple-700">
               ← 메인으로 돌아가기
-            </a>
+            </Link>
           </div>
         </main>
         <Footer />
@@ -147,9 +148,9 @@ export default function ResultPage() {
             </div>
             
             <div className="mt-6 text-center">
-              <a href="/" className="text-purple-600 hover:text-purple-700 font-medium">
+              <Link href="/" className="text-purple-600 hover:text-purple-700 font-medium">
                 ← 다시 만들기
-              </a>
+              </Link>
             </div>
           </Card>
           
