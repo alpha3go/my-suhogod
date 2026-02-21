@@ -1,6 +1,9 @@
 /**
  * Generate API - AI 이미지 및 텍스트 생성
+ * Cloudflare Pages Edge Runtime
  */
+
+export const runtime = 'edge';
 
 import { NextRequest, NextResponse } from 'next/server';
 import { analyzeUserData } from '@/lib/analysis/analyze';

@@ -1,8 +1,8 @@
 /**
- * DALL-E Image Generation
+ * DALL-E Image Generation - Edge Runtime Compatible
  */
 
-import { getOpenAIClient } from './openai';
+import { callOpenAI } from './openai';
 import { AnalysisResult } from '@/types/analysis';
 
 // 색상별 hex 코드 매핑
@@ -59,22 +59,11 @@ export function generateImagePrompt(analysis: AnalysisResult): string {
  * DALL-E 3로 이미지 생성
  */
 export async function generateGuardianImage(analysis: AnalysisResult): Promise<string> {
-  const client = getOpenAIClient();
-  
   const prompt = generateImagePrompt(analysis);
   
   console.log('DALL-E Prompt:', prompt);
   
-  const response = await client.images.generate({
-    model: 'dall-e-3',
-    prompt: prompt,
-    size: '1024x1024',
-    quality: 'standard',
-    n: 1
-  });
-  
-  const imageData = response.data?.[0];
-  const imageUrl = imageData?.url;
+  const imageUrl = await callOpenAI(prompt, true);
   
   if (!imageUrl) {
     throw new Error('Failed to generate image');

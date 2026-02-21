@@ -2,7 +2,7 @@
  * GPT-4o Text Generation for Fortune
  */
 
-import { getOpenAIClient } from './openai';
+import { callOpenAI } from './openai';
 import { AnalysisResult } from '@/types/analysis';
 import { FortuneText, GuardianName } from '@/types/result';
 
@@ -59,30 +59,11 @@ export async function generateFortuneText(
   userName: string,
   analysis: AnalysisResult
 ): Promise<FortuneText> {
-  const client = getOpenAIClient();
-  
   const prompt = generateTextPrompt(userName, analysis);
   
   console.log('GPT Prompt:', prompt);
   
-  const response = await client.chat.completions.create({
-    model: 'gpt-4o',
-    messages: [
-      {
-        role: 'system',
-        content: '당신은 사용자의 운세를 담당하는 수호천사입니다. 친근하고 위로가 되는 톤으로 작성해주세요.'
-      },
-      {
-        role: 'user',
-        content: prompt
-      }
-    ],
-    response_format: { type: 'json_object' },
-    temperature: 0.8,
-    max_tokens: 1000
-  });
-  
-  const content = response.choices[0]?.message?.content;
+  const content = await callOpenAI(prompt, false);
   
   if (!content) {
     throw new Error('Failed to generate fortune text');
