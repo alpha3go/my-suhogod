@@ -2,6 +2,9 @@
   "name": "my-suhogod",
   "version": "0.1.0",
   "private": true,
+  "overrides": {
+    "next": "15.5.2"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
